@@ -1,0 +1,23 @@
+{
+  "name": "connect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "auth.spec.js",
+ "scripts": {
+  "test:qa": "cross-env testenv=qa npx playwright test tests/bankPortal/maker/pagination.spec.js",
+  "test:dev": "cross-env testenv=dev npx playwright test tests/bankPortal/maker/pagination.spec.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.1",
+    "allure-playwright": "^3.2.2"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.5.0"
+  }
+}

@@ -1,0 +1,183 @@
+# Test info
+
+- Name: Agents Module Tests >> Search user by phone/email (should find)
+- Location: C:\Users\derej\Desktop\Connect\tests\bankPortal\Maker\agents.spec.js:17:3
+
+# Error details
+
+```
+Error: expect(locator).toContainText(expected)
+
+Locator: locator('tbody')
+Expected string: "flipejone@gmail.com"
+Received: <element(s) not found>
+Call log:
+  - expect.toContainText with timeout 5000ms
+  - waiting for locator('tbody')
+    5 × locator resolved to <tbody class="rc-table-tbody">…</tbody>
+      - unexpected value "          450574testagent encrtest@gmail.com+251910101010EthiopiaaddisTue, May 20 2025 (8:55 AM)EnabledCurrently enabled - click to disable"
+
+    at agentsPage.searchByEmailOrPhone (C:\Users\derej\Desktop\Connect\pages\bankPortal\maker\agents.page.js:60:32)
+    at C:\Users\derej\Desktop\Connect\tests\bankPortal\Maker\agents.spec.js:26:7
+```
+
+# Test source
+
+```ts
+   1 | // pages/bankPortal/maker/agents.page.js
+   2 | import { expect } from "@playwright/test";
+   3 |
+   4 | export class agentsPage {
+   5 |   constructor(page) {
+   6 |     this.page = page;
+   7 |     this.agentMenu = page.getByRole("link", { name: "Agents" });
+   8 |     this.searchInput = page.getByPlaceholder("Search by name, phone number");
+   9 |     this.tbody = page.locator("tbody");
+   10 |
+   11 |     // Agent creation form selectors
+   12 |     this.createButton = page.getByRole("button", { name: "Add Agent" });
+   13 |     this.nameInput = page.getByLabel("Agent Name");
+   14 |     this.phoneInput = page.getByLabel("Phone Number");
+   15 |     this.emailInput = page.getByLabel("Email");
+   16 |     this.bankNameInput = page.getByLabel("Bank Name");
+   17 |     this.accountNumberInput = page.getByLabel("Account Number");
+   18 |     this.tinInput = page.getByLabel("TIN");
+   19 |     this.licenseInput = page.getByLabel("License Number");
+   20 |     this.cityInput = page.getByRole("textbox", { name: "City", exact: true });
+   21 |     this.regionInput = page.getByLabel("Region");
+   22 |     this.zoneInput = page.getByLabel("Zone");
+   23 |     this.woredaInput = page.getByLabel("Woreda");
+   24 |     this.kebeleInput = page.getByLabel("Kebele");
+   25 |     this.houseNumberInput = page.getByRole("textbox", { name: "House No", exact: true });
+   26 |     this.frontUpload = page.locator('input[type="file"]').first();
+   27 |     this.backUpload = page.locator('input[type="file"]').nth(1);
+   28 |     //this.livePhotoUpload = page.locator('input[type="file"]').nth(2);
+   29 |     //this.signatureUpload = page.locator('input[type="file"]').nth(3);
+   30 |     this.saveButton = page.locator('xpath=/html/body/main/form/div[8]/button');
+   31 |
+   32 |     // toggle button for a specific user row identified by user info
+   33 |     this.toggleButtonCell = this.page
+   34 |       .getByRole('row')
+   35 |       .filter({ hasText: '575083' })
+   36 |       .filter({ hasText: 'flib jon' })
+   37 |       .filter({ hasText: 'flipejone@gmail.com' })
+   38 |       .locator('td:nth-child(9)');
+   39 |
+   40 |     this.confirmButton = this.page.getByRole('button', { name: 'Yes' });
+   41 |   }
+   42 |
+   43 |   async navigate() {
+   44 |     await this.agentMenu.click();
+   45 |     // await expect(this.page).toHaveURL(/.*agents/);
+   46 |   }
+   47 |
+   48 |   async searchByName(name, shouldExist = true) {
+   49 |     await this.searchInput.fill(name);
+   50 |     if (shouldExist) {
+   51 |       await expect(this.tbody).toContainText(name);
+   52 |     } else {
+   53 |       await expect(this.tbody).not.toContainText(name);
+   54 |     }
+   55 |   }
+   56 |
+   57 |   async searchByEmailOrPhone(value, shouldExist = true) {
+   58 |     await this.searchInput.fill(value);
+   59 |     if (shouldExist) {
+>  60 |       await expect(this.tbody).toContainText(value);
+      |                                ^ Error: expect(locator).toContainText(expected)
+   61 |     } else {
+   62 |       await expect(this.tbody).not.toContainText(value);
+   63 |     }
+   64 |   }
+   65 |
+   66 |   async toggleUserStatusByName(fullName) {
+   67 |     const row = this.page.getByRole("row", { name: new RegExp(fullName, "i") });
+   68 |     const toggleButton = row.locator("span").nth(2);
+   69 |     await toggleButton.click();
+   70 |
+   71 |     const confirm = this.page.getByRole("button", { name: "Yes" });
+   72 |     await confirm.click();
+   73 |
+   74 |     await this.page.waitForTimeout(1000);
+   75 |     // Click again to re-enable if needed
+   76 |     await toggleButton.click();
+   77 |     await confirm.click();
+   78 |   }
+   79 |
+   80 |   async createAgent(agentData) {
+   81 |     await this.createButton.click();
+   82 |     await this.nameInput.fill(agentData.agentName);
+   83 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+   84 |     await this.emailInput.fill(agentData.agentEmail);
+   85 |     await this.bankNameInput.fill(agentData.agentBankName);
+   86 |     await this.accountNumberInput.fill(agentData.agentAccountNumber);
+   87 |     await this.tinInput.fill(agentData.agentTinNumber);
+   88 |     await this.licenseInput.fill(agentData.agentLicenseNumber);
+   89 |     await this.cityInput.fill(agentData.agentCity);
+   90 |     await this.regionInput.fill(agentData.agentRegion);
+   91 |     await this.zoneInput.fill(agentData.agentZone);
+   92 |     await this.woredaInput.fill(agentData.agentWoreda);
+   93 |     await this.kebeleInput.fill(agentData.agentKebele);
+   94 |     await this.houseNumberInput.fill(agentData.agentHouseNumber);
+   95 |     await this.frontUpload.setInputFiles(agentData.agentFrontPage);
+   96 |     await this.backUpload.setInputFiles(agentData.agentBackPage);
+   97 |     // await this.livePhotoUpload.setInputFiles(agentData.agentLivePhoto);
+   98 |     // await this.signatureUpload.setInputFiles(agentData.agentSignature);
+   99 |     await this.saveButton.click();
+  100 |   }
+  101 |
+  102 |   async createUserWithInvalidName(agentData) {
+  103 |     await this.createButton.click();
+  104 |     await this.nameInput.fill(agentData.agentName);
+  105 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+  106 |     await this.emailInput.fill(agentData.agentEmail);
+  107 |     await this.saveButton.click();
+  108 |   }
+  109 |
+  110 |   async createUserWithInvalidPhone(agentData) {
+  111 |     await this.createButton.click();
+  112 |     await this.nameInput.fill(agentData.agentName);
+  113 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+  114 |     await this.emailInput.fill(agentData.agentEmail);
+  115 |     await this.saveButton.click();
+  116 |   }
+  117 |
+  118 |   async createUserWithInvalidEmail(agentData) {
+  119 |     await this.createButton.click();
+  120 |     await this.nameInput.fill(agentData.agentName);
+  121 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+  122 |     await this.emailInput.fill(agentData.agentEmail);
+  123 |     await this.saveButton.click();
+  124 |   }
+  125 |
+  126 |   async createUserWithInvalidBankName(agentData) {
+  127 |     await this.createButton.click();
+  128 |     await this.nameInput.fill(agentData.agentName);
+  129 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+  130 |     await this.emailInput.fill(agentData.agentEmail);
+  131 |     await this.bankNameInput.fill(agentData.agentBankName);
+  132 |     await this.saveButton.click();
+  133 |   }
+  134 |
+  135 |   async createUserWithInvalidAccountNumber(agentData) {
+  136 |     await this.createButton.click();
+  137 |     await this.nameInput.fill(agentData.agentName);
+  138 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+  139 |     await this.emailInput.fill(agentData.agentEmail);
+  140 |     await this.bankNameInput.fill(agentData.agentBankName);
+  141 |     await this.accountNumberInput.fill(agentData.agentAccountNumber);
+  142 |     await this.saveButton.click();
+  143 |   }
+  144 |
+  145 |   async toggleUser() {
+  146 |     await this.toggleButtonCell.click();
+  147 |     await this.confirmButton.click();
+  148 |     await this.page.waitForTimeout(1000);
+  149 |
+  150 |     await this.toggleButtonCell.click();
+  151 |     await this.confirmButton.click();
+  152 |     await this.page.waitForTimeout(1000);
+  153 |   }
+  154 | }
+  155 |
+```

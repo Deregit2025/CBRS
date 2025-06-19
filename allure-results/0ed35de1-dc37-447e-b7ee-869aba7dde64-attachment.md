@@ -1,0 +1,285 @@
+# Test info
+
+- Name: Agents Module Tests >> should toggle agent
+- Location: C:\Users\derej\Desktop\Connect\tests\bankPortal\Maker\agents.spec.js:30:3
+
+# Error details
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('row', { name: '575083 flipe jon flipejone@' }).locator('span').nth(3)
+    - waiting for" https://dev-test-cbrs-dashboard.vercel.app/" navigation to finish...
+    - navigated to "https://dev-test-cbrs-dashboard.vercel.app/"
+
+    at agentsPage.toggleUser (C:\Users\derej\Desktop\Connect\pages\bankPortal\maker\agents.page.js:127:33)
+    at C:\Users\derej\Desktop\Connect\tests\bankPortal\Maker\agents.spec.js:32:23
+```
+
+# Page snapshot
+
+```yaml
+- main:
+  - img "Sign In Thumbnail"
+  - img "logo"
+  - img "cbenewmaker"
+  - heading "cbenewmaker cbenewbank" [level=6]
+  - paragraph: cbenewmaker@gmail.com
+  - heading "👋 Welcome to Connect 's Bank Portal!" [level=4]
+  - paragraph: Easily manage and monitor all transactions, track overall activities seamlessly.
+  - link "Statistical Info. Statistical Info. Get a comprehensive overview of your account activities and key insights.":
+    - /url: /dashboard
+    - img "Statistical Info."
+    - heading "Statistical Info." [level=5]
+    - paragraph: Get a comprehensive overview of your account activities and key insights.
+    - button:
+      - img
+  - link "Transactions Transactions Monitor and manage all transaction activities conducted for different transactions":
+    - /url: /bank-transactions
+    - img "Transactions"
+    - heading "Transactions" [level=5]
+    - paragraph: Monitor and manage all transaction activities conducted for different transactions
+    - button:
+      - img
+  - link "Reports Reports View all the completed transaction lists of your customers.":
+    - /url: /bank-report
+    - img "Reports"
+    - heading "Reports" [level=5]
+    - paragraph: View all the completed transaction lists of your customers.
+    - button:
+      - img
+  - heading "Action Menus" [level=6]
+  - paragraph: Select action from the listed action menus based on the action you want to do.
+  - link "Users Create and manage users within this admin portal.":
+    - /url: /users
+    - img
+    - heading "Users" [level=6]
+    - paragraph: Create and manage users within this admin portal.
+  - link "Exchange Rate Set exchange rates for your bank across currencies. Include all rates between each currency pair.":
+    - /url: /exchange-rates
+    - img
+    - heading "Exchange Rate" [level=6]
+    - paragraph: Set exchange rates for your bank across currencies. Include all rates between each currency pair.
+  - button "Active Loans & Applications Monitor all loan applications and repayments from Connect app users.":
+    - img
+    - heading "Active Loans & Applications" [level=6]
+    - paragraph: Monitor all loan applications and repayments from Connect app users.
+  - link "Loans Products Create, manage, and update the loan products offered by your bank on the app.":
+    - /url: /loan-products
+    - img
+    - heading "Loans Products" [level=6]
+    - paragraph: Create, manage, and update the loan products offered by your bank on the app.
+  - link "Loan Terms & Conditions Outline the key details and obligations of the loan agreement a user should read when applying for a loan.":
+    - /url: /bank-term-condition
+    - img
+    - heading "Loan Terms & Conditions" [level=6]
+    - paragraph: Outline the key details and obligations of the loan agreement a user should read when applying for a loan.
+  - link "Agents Create and manage agents who provide transfer services to users.":
+    - /url: /agents
+    - img
+    - heading "Agents" [level=6]
+    - paragraph: Create and manage agents who provide transfer services to users.
+  - link "Merchant Create, manage, and update merchants.":
+    - /url: /merchants
+    - img
+    - heading "Merchant" [level=6]
+    - paragraph: Create, manage, and update merchants.
+  - heading "Daily Exchange Rate" [level=6]
+  - heading "Currency" [level=6]
+  - heading "Rate" [level=6]
+  - heading "Status" [level=6]
+  - img "flags"
+  - heading "USD" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "ETB" [level=6]
+  - heading "1,234,567,890.00" [level=6]
+  - img
+  - img "flags"
+  - heading "EUR" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "ETB" [level=6]
+  - heading "151.20" [level=6]
+  - img
+  - img "flags"
+  - heading "AUD" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "ETB" [level=6]
+  - heading "85.63" [level=6]
+  - img
+  - img "flags"
+  - heading "SAR" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "AUD" [level=6]
+  - heading "44.00" [level=6]
+  - img
+  - img "flags"
+  - heading "BRL" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "USD" [level=6]
+  - heading "2.00" [level=6]
+  - img
+  - heading "Currency" [level=6]
+  - heading "Rate" [level=6]
+  - heading "Status" [level=6]
+  - img "flags"
+  - heading "SAR" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "ETB" [level=6]
+  - heading "25.00" [level=6]
+  - img
+  - img "flags"
+  - heading "GBP" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "USD" [level=6]
+  - heading "11.00" [level=6]
+  - img
+  - img "flags"
+  - heading "AFN" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "SAR" [level=6]
+  - heading "2.00" [level=6]
+  - img
+  - img "flags"
+  - heading "AUD" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "SAR" [level=6]
+  - heading "20.00" [level=6]
+  - img
+  - img "flags"
+  - heading "AUD" [level=6]
+  - heading "To" [level=6]
+  - img "flags"
+  - heading "GBP" [level=6]
+  - heading "12.00" [level=6]
+  - img
+  - text: Copyright © 2025 CONNECT System | EagleLion System Technology. All rights reserved.
+- region "Notifications alt+T"
+- alert
+```
+
+# Test source
+
+```ts
+   27 |     this.backUpload = page.locator('input[type="file"]').nth(1);
+   28 |     //this.livePhotoUpload = page.locator('input[type="file"]').nth(2);
+   29 |     //this.signatureUpload = page.locator('input[type="file"]').nth(3);
+   30 |     this.saveButton = page.locator('xpath=/html/body/main/form/div[8]/button');
+   31 |
+   32 |     // toggle button for a specific user row identified by user info
+   33 |     this.toggleButtonCell = this.page.getByRole('row', { name: '575083 flipe jon flipejone@' }).locator('span').nth(3)
+   34 |
+   35 |     this.confirmButton = this.page.getByRole('button', { name: 'Yes' });
+   36 |   }
+   37 |
+   38 |   async navigate() {
+   39 |     await this.agentMenu.click();
+   40 |     // await expect(this.page).toHaveURL(/.*agents/);
+   41 |   }
+   42 |
+   43 |   async searchByName(name, shouldExist = true) {
+   44 |     await this.searchInput.fill(name);
+   45 |     if (shouldExist) {
+   46 |       await expect(this.tbody).toContainText(name);
+   47 |     } else {
+   48 |       await expect(this.tbody).not.toContainText(name);
+   49 |     }
+   50 |   }
+   51 |
+   52 |   async searchByEmailOrPhone(value, shouldExist = true) {
+   53 |     await this.searchInput.fill(value);
+   54 |     if (shouldExist) {
+   55 |       await expect(this.tbody).toContainText(value);
+   56 |     } else {
+   57 |       await expect(this.tbody).not.toContainText(value);
+   58 |     }
+   59 |   }
+   60 |
+   61 |   async createAgent(agentData) {
+   62 |     await this.createButton.click();
+   63 |     await this.nameInput.fill(agentData.agentName);
+   64 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+   65 |     await this.emailInput.fill(agentData.agentEmail);
+   66 |     await this.bankNameInput.fill(agentData.agentBankName);
+   67 |     await this.accountNumberInput.fill(agentData.agentAccountNumber);
+   68 |     await this.tinInput.fill(agentData.agentTinNumber);
+   69 |     await this.licenseInput.fill(agentData.agentLicenseNumber);
+   70 |     await this.cityInput.fill(agentData.agentCity);
+   71 |     await this.regionInput.fill(agentData.agentRegion);
+   72 |     await this.zoneInput.fill(agentData.agentZone);
+   73 |     await this.woredaInput.fill(agentData.agentWoreda);
+   74 |     await this.kebeleInput.fill(agentData.agentKebele);
+   75 |     await this.houseNumberInput.fill(agentData.agentHouseNumber);
+   76 |     await this.frontUpload.setInputFiles(agentData.agentFrontPage);
+   77 |     await this.backUpload.setInputFiles(agentData.agentBackPage);
+   78 |     // await this.livePhotoUpload.setInputFiles(agentData.agentLivePhoto);
+   79 |     // await this.signatureUpload.setInputFiles(agentData.agentSignature);
+   80 |     await this.saveButton.click();
+   81 |   }
+   82 |
+   83 |   async createUserWithInvalidName(agentData) {
+   84 |     await this.createButton.click();
+   85 |     await this.nameInput.fill(agentData.agentName);
+   86 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+   87 |     await this.emailInput.fill(agentData.agentEmail);
+   88 |     await this.saveButton.click();
+   89 |   }
+   90 |
+   91 |   async createUserWithInvalidPhone(agentData) {
+   92 |     await this.createButton.click();
+   93 |     await this.nameInput.fill(agentData.agentName);
+   94 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+   95 |     await this.emailInput.fill(agentData.agentEmail);
+   96 |     await this.saveButton.click();
+   97 |   }
+   98 |
+   99 |   async createUserWithInvalidEmail(agentData) {
+  100 |     await this.createButton.click();
+  101 |     await this.nameInput.fill(agentData.agentName);
+  102 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+  103 |     await this.emailInput.fill(agentData.agentEmail);
+  104 |     await this.saveButton.click();
+  105 |   }
+  106 |
+  107 |   async createUserWithInvalidBankName(agentData) {
+  108 |     await this.createButton.click();
+  109 |     await this.nameInput.fill(agentData.agentName);
+  110 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+  111 |     await this.emailInput.fill(agentData.agentEmail);
+  112 |     await this.bankNameInput.fill(agentData.agentBankName);
+  113 |     await this.saveButton.click();
+  114 |   }
+  115 |
+  116 |   async createUserWithInvalidAccountNumber(agentData) {
+  117 |     await this.createButton.click();
+  118 |     await this.nameInput.fill(agentData.agentName);
+  119 |     await this.phoneInput.fill(agentData.agentPhoneNumber);
+  120 |     await this.emailInput.fill(agentData.agentEmail);
+  121 |     await this.bankNameInput.fill(agentData.agentBankName);
+  122 |     await this.accountNumberInput.fill(agentData.agentAccountNumber);
+  123 |     await this.saveButton.click();
+  124 |   }
+  125 |
+  126 |   async toggleUser() {
+> 127 |     await this.toggleButtonCell.click();
+      |                                 ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  128 |     await this.confirmButton.click();
+  129 |     await this.page.waitForTimeout(1000);
+  130 |     await this.toggleButtonCell.click();
+  131 |     await this.confirmButton.click();
+  132 |     await this.page.waitForTimeout(1000);
+  133 |   }
+  134 | }
+  135 |
+  136 |
+  137 |
+  138 |
+```
