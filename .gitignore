@@ -5,3 +5,6 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+# Ignore Allure test result and report folders
+allure-results/
+allure-report/
